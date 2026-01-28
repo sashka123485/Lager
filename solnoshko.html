@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детский лагерь "Солнышко" - Шомиково, Чувашская Республика</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 5px solid #cc6600;
+        }
+        
+        .header-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header-content p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .chuvash-title {
+            font-size: 1.5rem;
+            color: #8B0000;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        nav {
+            background-color: #cc6600;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #ff9900;
+        }
+        
+        section {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #cc6600;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: #ffcc00;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .program-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            color: #cc6600;
+            margin-bottom: 1rem;
+            border-left: 4px solid #ffcc00;
+            padding-left: 10px;
+        }
+        
+        .facilities {
+            background-color: #fff9e6;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .facilities ul {
+            list-style-position: inside;
+            margin-top: 1rem;
+        }
+        
+        .facilities li {
+            margin-bottom: 0.5rem;
+            padding-left: 10px;
+        }
+        
+        .chuvash-culture {
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+            border-left: 5px solid #8B0000;
+        }
+        
+        .chuvash-culture h3 {
+            color: #8B0000;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-card i {
+            font-size: 2rem;
+            color: #cc6600;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            color: #ffcc00;
+            margin-bottom: 1rem;
+        }
+        
+        .map-placeholder {
+            background-color: #e9ecef;
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1.5rem;
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .chuvash-flag {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(to bottom, #FF0000 33%, #FFFFFF 33%, #FFFFFF 66%, #0000FF 66%);
+            margin-right: 8px;
+            vertical-align: middle;
+            border-radius: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.3rem 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1>Детский лагерь "Солнышко"</h1>
+            <p>Шомиково, Чувашская Республика</p>
+            <div class="chuvash-title">
+                <span class="chuvash-flag"></span>Чăваш Республикинчи Шомиково ялĕнчи «Хĕвел» ача-пăча лагерĕ
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">О лагере</a></li>
+                <li><a href="#program">Программа</a></li>
+                <li><a href="#facilities">Условия</a></li>
+                <li><a href="#culture">Чувашская культура</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="about">
+            <h2 class="section-title">О лагере "Солнышко"</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Детский оздоровительный лагерь "Солнышко" расположен в живописном месте Чувашской Республики, в деревне Шомиково, в окружении соснового леса и чистых озер.</p>
+                    <p>Наш лагерь был основан в 1995 году и за это время заслужил репутацию одного из лучших детских оздоровительных учреждений в регионе. Каждое лето мы принимаем более 500 детей в возрасте от 7 до 16 лет.</p>
+                    <p>Миссия лагеря — обеспечить детям незабываемый отдых, укрепить их здоровье, развить творческие способности и познакомить с богатой культурой чувашского народа.</p>
+                </div>
+                <div class="about-image">
+                    <div class="map-placeholder">
+                        <div>
+                            <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: #cc6600; margin-bottom: 1rem;"></i>
+                            <p>Чувашская Республика, Моргаушский район,<br>деревня Шомиково</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="program">
+            <h2 class="section-title">Программа отдыха</h2>
+            <div class="program-cards">
+                <div class="card">
+                    <h3><i class="fas fa-heartbeat"></i> Оздоровление</h3>
+                    <p>Ежедневная зарядка, спортивные мероприятия, плавание в бассейне, сбалансированное пятиразовое питание, витаминизация.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-graduation-cap"></i> Образование</h3>
+                    <p>Творческие мастер-классы, уроки чувашского языка и культуры, занятия по интересам, интеллектуальные игры и викторины.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-hiking"></i> Активный отдых</h3>
+                    <p>Туристические походы, спортивные соревнования, квесты, занятия на веревочном парке, катание на лодках.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-theater-masks"></i> Творчество</h3>
+                    <p>Театральная студия, хореография, вокальный ансамбль, изобразительное искусство, конкурсы талантов.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="facilities">
+            <h2 class="section-title">Условия проживания</h2>
+            <div class="facilities">
+                <p>Лагерь "Солнышко" располагает современной инфраструктурой для комфортного и безопасного отдыха детей:</p>
+                <ul>
+                    <li>Благоустроенные корпуса с 4-5 местными номерами</li>
+                    <li>Столовая с разнообразным и здоровым питанием</li>
+                    <li>Медицинский пункт с круглосуточным дежурством врача</li>
+                    <li>Спортивный комплекс с залом и площадками</li>
+                    <li>Крытый плавательный бассейн</li>
+                    <li>Актовый зал для мероприятий</li>
+                    <li>Библиотека и компьютерный класс</li>
+                    <li>Охраняемая территория с видеонаблюдением</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="culture">
+            <h2 class="section-title">Чувашская культура в лагере</h2>
+            <div class="chuvash-culture">
+                <h3>Знакомство с традициями чувашского народа</h3>
+                <p>В лагере "Солнышко" особое внимание уделяется сохранению и популяризации чувашской культуры. В программу включены:</p>
+                <ul>
+                    <li>Уроки чувашского языка в игровой форме</li>
+                    <li>Знакомство с чувашскими народными праздниками: Акатуй, Сурхури, Çимĕк</li>
+                    <li>Мастер-классы по народным ремеслам: вышивка, ткачество, резьба по дереву</li>
+                    <li>Изучение народных песен и танцев</li>
+                    <li>Встречи с деятелями чувашской культуры</li>
+                    <li>Дегустация блюд национальной кухни</li>
+                </ul>
+                <p style="margin-top: 1rem; font-style: italic;">"Пирĕн лагерьте чăваш культурине ача-пăчана çутта кăлараççĕ" - В нашем лагере детей просвещают в чувашской культуре.</p>
+            </div>
+        </section>
+        
+        <section id="contacts">
+            <h2 class="section-title">Контакты и запись</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Телефон</h3>
+                    <p>+7 (835) 123-45-67</p>
+                    <p>+7 (835) 123-45-68</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Электронная почта</h3>
+                    <p>camp.solnyshko@mail.ru</p>
+                    <p>solnyshko.shomikovo@chuvash.ru</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Адрес</h3>
+                    <p>Чувашская Республика, Моргаушский район, деревня Шомиково, Детский лагерь "Солнышко"</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Сезон 2024</h3>
+                    <p>1 июня - 31 августа</p>
+                    <p>4 смены по 18 дней</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">Лагерь "Солнышко"</div>
+            <p>Чувашская Республика, деревня Шомиково</p>
+            <p>© 2024 Детский оздоровительный лагерь "Солнышко". Все права защищены.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">С заботой о детях и сохранении чувашских традиций</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Добавление активности в навигации при прокрутке
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Стиль для активной ссылки
+        const style = document.createElement('style');
+        style.textContent = `
+            nav a.active {
+                background-color: #ff9900;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

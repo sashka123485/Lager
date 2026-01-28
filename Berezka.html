@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детский лагерь "Березка" - Шомиково, Чувашская Республика</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #ffb300;
+            --light-color: #f1f8e9;
+            --dark-color: #1b5e20;
+            --text-color: #333;
+            --text-light: #666;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(30, 87, 35, 0.9), rgba(30, 87, 35, 0.8)), url('https://images.unsplash.com/photo-1543321269-9d86d3680e1c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Programs */
+        .programs {
+            background-color: var(--light-color);
+        }
+
+        .programs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .program-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .program-card:hover .program-image img {
+            transform: scale(1.1);
+        }
+
+        .program-info {
+            padding: 25px;
+        }
+
+        .program-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        /* Gallery */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Contact */
+        .contact {
+            background-color: var(--light-color);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-details p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-details i {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--dark-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .programs-container, .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-tree"></i>
+                <div class="logo-text">
+                    <h1>Лагерь "Березка"</h1>
+                    <p>Шомиково, Чувашская Республика</p>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">О лагере</a></li>
+                    <li><a href="#programs">Программы</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Hero section -->
+        <div class="container hero" id="home">
+            <h2>Детский лагерь "Березка"</h2>
+            <p>Место, где дети отдыхают, развиваются и находят новых друзей среди живописной природы Чувашии. Безопасность, комфорт и интересные программы для детей от 7 до 16 лет.</p>
+            <a href="#contact" class="cta-button">Записаться на смену</a>
+        </div>
+    </header>
+
+    <!-- About section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>О нашем лагере</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Детский оздоровительный лагерь "Березка" расположен в живописном месте Шомиковского поселения Чувашской Республики, в экологически чистой лесопарковой зоне.</p>
+                    <p>Наш лагерь имеет более чем 30-летнюю историю и принимает детей со всей республики и соседних регионов. Мы создаем условия для полноценного отдыха, оздоровления и развития детей в возрасте от 7 до 16 лет.</p>
+                    <p>Территория лагеря занимает 5 гектаров и включает в себя современные корпуса для проживания, столовую, медицинский пункт, спортивные площадки, бассейн и многое другое.</p>
+                    <p>Мы предлагаем разнообразные тематические смены, каждая из которых имеет свою уникальную программу, разработанную опытными педагогами и психологами.</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Территория лагеря Березка">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs section -->
+    <section id="programs" class="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши программы</h2>
+            </div>
+            
+            <div class="programs-container">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Спортивная программа">
+                    </div>
+                    <div class="program-info">
+                        <h3>Спортивная смена</h3>
+                        <p>Активные игры, соревнования, туристические походы и обучение различным видам спорта. Развиваем силу, ловкость и командный дух.</p>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Творческая программа">
+                    </div>
+                    <div class="program-info">
+                        <h3>Творческая смена</h3>
+                        <p>Мастер-классы по рисованию, лепке, танцам, музыке и театральному искусству. Раскрываем творческий потенциал каждого ребенка.</p>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Экологическая программа">
+                    </div>
+                    <div class="program-info">
+                        <h3>Экологическая смена</h3>
+                        <p>Изучение природы Чувашии, экологические проекты, походы в лес, наблюдение за животными и растениями. Воспитываем любовь к природе.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Галерея</h2>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Корпуса лагеря">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1546500840-ae38253aba9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Столовая">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Спортивные мероприятия">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Творческие занятия">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Контакты</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Свяжитесь с нами</h3>
+                    <p>Мы готовы ответить на все ваши вопросы и рассказать подробнее о лагере "Березка".</p>
+                    
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> <span>Чувашская Республика, Моргаушский район, деревня Шомиково, Лагерь "Березка"</span></p>
+                        <p><i class="fas fa-phone"></i> <span>+7 (835) 123-45-67</span></p>
+                        <p><i class="fas fa-envelope"></i> <span>berezka.camp@mail.ru</span></p>
+                        <p><i class="fas fa-clock"></i> <span>Пн-Пт: 9:00 - 18:00</span></p>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-odnoklassniki"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Записаться на смену</h3>
+                    <form id="campForm">
+                        <div class="form-group">
+                            <label for="name">Имя ребенка</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="age">Возраст ребенка</label>
+                            <input type="number" id="age" name="age" min="7" max="16" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="parent">Имя родителя</label>
+                            <input type="text" id="parent" name="parent" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Дополнительная информация</label>
+                            <textarea id="message" name="message" placeholder="Укажите желаемую смену, особенности ребенка и т.д."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Лагерь "Березка"</h3>
+                    <p>Детский оздоровительный лагерь в Шомиково, Чувашская Республика. Создаем условия для безопасного, интересного и развивающего отдыха детей с 1990 года.</p>
+                </div>
+                
+                <div class="footer-column footer-links">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#about">О лагере</a></li>
+                        <li><a href="#programs">Программы</a></li>
+                        <li><a href="#gallery">Галерея</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Смены 2023</h3>
+                    <ul>
+                        <li>1 смена: 10 июня - 30 июня</li>
+                        <li>2 смена: 5 июля - 25 июля</li>
+                        <li>3 смена: 1 августа - 21 августа</li>
+                        <li>4 смена: 25 августа - 14 сентября</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Детский оздоровительный лагерь "Березка". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Form submission
+        document.getElementById('campForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const parent = document.getElementById('parent').value;
+            const phone = document.getElementById('phone').value;
+            
+            // Simple validation
+            if(name && age && parent && phone) {
+                alert(`Спасибо, ${parent}! Ваша заявка на заезд ребенка ${name} (${age} лет) в лагерь "Березка" принята. Мы свяжемся с вами по номеру ${phone} в ближайшее время.`);
+                document.getElementById('campForm').reset();
+            } else {
+                alert('Пожалуйста, заполните все обязательные поля формы.');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(window.innerWidth <= 768) {
+                        document.querySelector('nav ul').style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

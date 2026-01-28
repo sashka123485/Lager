@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детские и молодежные лагеря Чувашии</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #1e6b52;
+            --secondary-color: #2d9c7c;
+            --accent-color: #ff9f1c;
+            --light-color: #f5f9f7;
+            --dark-color: #1a3c32;
+            --text-color: #333;
+            --text-light: #666;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary-color);
+            font-size: 28px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .logo-text span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 60, 50, 0.8), rgba(26, 60, 50, 0.9)), url('https://images.unsplash.com/photo-1537225228614-56cc3556d7ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e68a00;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .details-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 12px 0;
+            width: 100%;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .details-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(30, 107, 82, 0.2);
+        }
+        
+        .details-link i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .details-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 4px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 15%;
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Camps Grid */
+        .camps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .camp-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .camp-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .camp-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .camp-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .camp-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .camp-location {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .camp-description {
+            margin-bottom: 20px;
+            color: var(--text-color);
+            flex-grow: 1;
+        }
+        
+        .camp-features {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .camp-feature {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .camp-feature i {
+            color: var(--secondary-color);
+        }
+        
+        /* Regions Section */
+        .regions {
+            background-color: var(--light-color);
+        }
+        
+        .regions-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .region-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .region-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .region-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .region-card h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        /* Contacts Section */
+        .contacts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-detail i {
+            font-size: 22px;
+            color: var(--secondary-color);
+            width: 40px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: var(--accent-color);
+        }
+        
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer-links h4:after,
+        .footer-contact h4:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-150%);
+                transition: transform 0.5s;
+                z-index: 999;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0 0 20px 0;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-campground logo-icon"></i>
+                <div class="logo-text">Лагеря <span>Чувашии</span></div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#camps">Лагеря</a></li>
+                    <li><a href="#regions">Регионы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Лучшие детские лагеря Чувашской Республики</h1>
+            <p>Откройте для своего ребенка увлекательный мир приключений, спорта и творчества в экологически чистых уголках Чувашии. Безопасный отдых с профессиональными педагогами и вожатыми.</p>
+            <a href="#camps" class="btn">Выбрать лагерь</a>
+        </div>
+    </section>
+
+    <!-- Camps Section -->
+    <section id="camps">
+        <div class="container">
+            <div class="section-title">
+                <h2>Популярные лагеря</h2>
+                <p>Подборка самых востребованных детских и молодежных лагерей в Чувашии с различными программами отдыха</p>
+            </div>
+            
+            <div class="camps-grid" id="campsContainer">
+                <!-- Camps will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Regions Section -->
+    <section class="regions" id="regions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Регионы Чувашии</h2>
+                <p>Лагеря расположены в самых живописных районах республики с уникальной природой и развитой инфраструктурой</p>
+            </div>
+            
+            <div class="regions-container">
+                <div class="region-card">
+                    <i class="fas fa-tree region-icon"></i>
+                    <h3>Шомиково</h3>
+                    <p>Лагеря в сосновых борах </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+                
+                <div class="footer-contact">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-map-marker-alt"></i>Шомиково</p>
+                    <p><i class="fas fa-phone"></i>	+7 (8352) 260033</p>
+                    <p><i class="fas fa-envelope"></i>Gdbk12@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Лагеря Чувашии. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Camps data with individual page URLs
+        const camps = [
+            {
+                id: 1,
+                name: "Березка",
+                location: "Шомиково",
+                description: "Современный детский оздоровительный лагерь с бассейном, спортивными площадками и творческими мастерскими.",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsYvAXe90yY4udJa_Y_6uZcmtv4un_kowzw&s",
+                age: "7-16 лет",
+                season: "круглогодичный",
+                type: "оздоровительный",
+                page: "Berezka.html"
+            },
+            {
+                id: 2,
+                name: "Солнышко",
+                location: "Шомиково",
+                description: "Лагерь на берегу волги",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlPVaJ1M53pGv1UVPUsRCXr9xgfN4bh5yAwA&s",
+                age: "6-15 лет",
+                season: "круглогодичный",
+                type: "спортивный",
+                page: "Solnoshko.html"
+            },
+            {
+                id: 3,
+                name: "Алый Парус",
+                location: "Шомиково",
+                description: "Лагерь в сосновом лесу.",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1o4NMZh1Hp6OApWikZ2ki4I9oUWu8ymITg&s",
+                age: "5-15 лет",
+                season: "круглогодичный",
+                type: "образовательный",
+                page: "Alas_Parys.html"
+            },
+            {
+                id: 4,
+                name: "Лесная сказка",
+                location: "Щомиково",
+                description: "Экологический лагерь в сосновом бору.",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe8TKeIgOgc6FfLVC87xRWCBjslDrn-erIHA&s",
+                age: "5-16 лет",
+                season: "круглогодичный",
+                type: "экологический",
+                page: "Lesna_Skazka.html"
+            },
+        
+        ];
+        
+        // Load camps into the grid
+        const campsContainer = document.getElementById('campsContainer');
+        
+        camps.forEach(camp => {
+            const campCard = document.createElement('div');
+            campCard.className = 'camp-card';
+            
+            campCard.innerHTML = `
+                <img src="${camp.image}" alt="${camp.name}" class="camp-img">
+                <div class="camp-info">
+                    <h3>${camp.name}</h3>
+                    <div class="camp-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>${camp.location}</span>
+                    </div>
+                    <p class="camp-description">${camp.description}</p>
+                    <div class="camp-features">
+                        <div class="camp-feature">
+                            <i class="fas fa-user-friends"></i>
+                            <span>${camp.age}</span>
+                        </div>
+                        <div class="camp-feature">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>${camp.season}</span>
+                        </div>
+                        <div class="camp-feature">
+                            <i class="fas fa-campground"></i>
+                            <span>${camp.type}</span>
+                        </div>
+                    </div>
+                    <a href="${camp.page}" class="details-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                </div>
+            `;
+            
+            campsContainer.appendChild(campCard);
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = this.querySelector('input[type="text"]').value;
+            const phone = this.querySelector('input[type="tel"]').value;
+            
+            // Show success message
+            alert(`Спасибо, ${name}! Ваша заявка принята. Мы свяжемся с вами по номеру ${phone} в ближайшее время.`);
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
